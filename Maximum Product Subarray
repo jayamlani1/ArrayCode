@@ -1,0 +1,27 @@
+int maxProduct(int* nums, int numsSize){
+
+    int min = nums[0];
+    int max = nums[0];
+    int product = nums[0];
+    
+    for(int i=1;i<numsSize;i++)
+    {
+        if(nums[i]<0)
+        {
+            int t = min;
+            min = max;
+            max= t;
+        }
+        // The reason we have minimus is because if we have negative number, the minimum can turn into maximum.
+        // Also if you see here, we are either storing the current numer of the max of previous and current.
+        // This is basically being used to reset the counter after slope is experienced(negaitve or zero).
+        
+        max = nums[i] > (max * nums[i]) ? nums[i] : (max * nums[i]);
+        min = nums[i] < (min * nums[i]) ? nums[i] : (min * nums[i]);
+        
+        // This is the universal max product. 
+         product = product > max ? product : max;
+        printf("Understanding min %d, max  %d, and product %d\n", min, max, product);
+    }
+    return product;
+}
