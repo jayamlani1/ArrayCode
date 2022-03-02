@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+
+void main(int nargs, char *argv[])
+{
+        int n = atoi(argv[1]);
+        /*int arr[n];
+        for(int i=0;i<n;i++)
+        {
+                arr[i] = atoi(argv[i+2]);
+        }
+        */
+
+        int days[1000]={0};
+        int odd =0;
+        for(int i=0;i<n;i++)
+        {
+                days[atoi(argv[i+2])]++;
+                if( days[atoi(argv[i+2])] % 2 !=0 )
+                {
+                        odd++;
+                }
+                else
+                {
+                        odd = odd-1;
+                }
+
+
+        }
+        printf("%d\n", odd);
+
+}
